@@ -6,6 +6,7 @@ apply plugin: 'watch'
 apply plugin: 'application'
 
 mainClassName = "com.noelherrick.HelloWorldServlet"
+applicationName = "micra"
 
 repositories {
   mavenCentral()
