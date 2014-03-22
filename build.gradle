@@ -5,6 +5,8 @@ apply plugin: 'eclipse-wtp'
 apply plugin: 'watch'
 apply plugin: 'application'
 
+mainClassName = "HelloWorldServlet"
+
 repositories {
   mavenCentral()
 }
