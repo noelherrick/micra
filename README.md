@@ -4,7 +4,7 @@ micra
     get("/", (req, resp) -> "Java, sans fluff.");
 
 
-Inspired by Java 8 which introduced lambdas, Micra is a proof-of-concept for a Sinatra-inspired micro Web framework. It allows you to map URLs to lambdas that. The routing syntax is derived from both Sinatra and Golang's Gorilla library.
+Inspired by Java 8 which introduced lambdas, Micra is a proof-of-concept for a Sinatra-inspired micro Web framework. It allows you to map URLs to lambdas. The routing syntax is derived from both Sinatra and Golang's Gorilla library.
 
 Running it
 -
@@ -46,8 +46,13 @@ A parameterized route can be:
 Any parameters (those parts of the routes in {}) can be used by the handler lambda:
 
     get("/helloworld/{name}",
-        (req, resp) ->
-        "Hello, " + ( req.getRouteParameter("name") != null ? req.getRouteParameter("name") : "world" ) + "?!?"
+        (req, resp) -> {
+            String name = "world";
+            if (req.getRouteParameter("name") != null)
+                name = req.getRouteParameter("name")
+                
+        }
+        "Hello, " + name + "!"
     );
 
 A regex route is exactly how it sounds: a regex that checks agains the URL.
@@ -61,7 +66,10 @@ Route Condition
 
 You can specify a route condition if you want to use other information besides the URL to route:
 
-    put("/foo", (req) -> req.getParameter("User-Agent").contains("Trident"), (req, resp) -> "Get chrome!");
+    put("/foo",
+        (req) -> req.getParameter("User-Agent").contains("Trident"),
+        (req, resp) -> "Get chrome!"
+    );
     
 Gradle Goodness
 -
