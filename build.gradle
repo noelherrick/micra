@@ -33,9 +33,10 @@ jettyRun {
 }
 
 watch {
-
     java {
         files files('src/main/java')
         tasks 'compileJava'
     }
 }
+
+task stage(dependsOn: ['clean', 'installApp'])
