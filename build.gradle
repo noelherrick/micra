@@ -17,6 +17,7 @@ buildscript {
 dependencies {
   providedCompile 'javax.servlet:servlet-api:2.5'
   compile 'com.github.spullara.mustache.java:compiler:0.8.14'
+  compile 'org.eclipse.jetty:jetty-project:9.1.3.v20140225'
   runtime 'javax.servlet:jstl:1.1.2'
   testCompile group: 'junit', name: 'junit', version: '4.11'
 }
