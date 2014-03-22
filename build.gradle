@@ -3,6 +3,7 @@ apply plugin: 'war'
 apply plugin: 'jetty' 
 apply plugin: 'eclipse-wtp'
 apply plugin: 'watch'
+apply plugin: 'application'
 
 repositories {
   mavenCentral()
